@@ -2,6 +2,9 @@
 import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
 
+const ogImageUrl =
+  "https://ubyttekkpuihhbkogznd.supabase.co/storage/v1/object/public/avatars/renw.png";
+
 const displayFont = Sora({
   variable: "--font-display",
   subsets: ["latin"],
@@ -16,7 +19,18 @@ const bodyFont = Manrope({
 
 export const metadata: Metadata = {
   title: "SQLBots - AI-Powered SQL Security Testing Platform",
-  description: "AI-powered SQL security automation platform for cloud-scale testing.",
+  description: "Automated SQL injection scanning, dumping and validation powered by AI engines.",
+  openGraph: {
+    title: "SQLBots - AI-Powered SQL Security Testing Platform",
+    description: "Automated SQL injection scanning, dumping and validation powered by AI engines.",
+    images: [{ url: ogImageUrl }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SQLBots - AI-Powered SQL Security Testing Platform",
+    description: "Automated SQL injection scanning, dumping and validation powered by AI engines.",
+    images: [ogImageUrl],
+  },
   icons: {
     icon: "/icon.svg?v=2",
     shortcut: "/icon.svg?v=2",

@@ -109,7 +109,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="/pricing"
+            href="https://dash.sqlbots.online/"
             className="inline-flex h-7 items-center justify-center rounded-lg bg-white px-3 text-[13px] font-medium text-black transition hover:bg-white/90"
           >
             Get started
