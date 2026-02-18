@@ -49,7 +49,7 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/40">Important</h4>
             <ul className="mt-4 space-y-2.5 text-sm text-white/70">
-              <li><a href="https://discord.gg/EvvkPW6EKy" target="_blank" rel="noopener noreferrer" className="transition hover:text-white">Contact</a></li>
+              <li><a href="https://discord.gg/es6vcqA5zS" target="_blank" rel="noopener noreferrer" className="transition hover:text-white">Contact</a></li>
               <li><a href="/terms" className="transition hover:text-white">Terms of Service</a></li>
               <li><a href="/privacy" className="transition hover:text-white">Privacy Policy</a></li>
             </ul>
