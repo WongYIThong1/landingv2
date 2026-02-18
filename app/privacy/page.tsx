@@ -210,7 +210,7 @@ export default function PrivacyPage() {
               For any questions or concerns regarding these Terms, please contact us on Telegram. You can also contact
               us on{" "}
               <a
-                href="https://discord.gg/eeMupKEX"
+                href="https://discord.gg/EvvkPW6EKy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white underline-offset-4 transition hover:underline"

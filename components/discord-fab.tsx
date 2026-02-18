@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 
-const DISCORD_URL = "https://discord.gg/eeMupKEX"
+const DISCORD_URL = "https://discord.gg/EvvkPW6EKy"
 
 export function DiscordFab() {
   const [enabled, setEnabled] = useState(true)
