@@ -7,11 +7,13 @@ const plans = [
     name: "Free",
     price: "$0",
     period: "/month",
-    description: "Start with core access and explore the workflow.",
+    description: "Explore SQLBots",
     cta: "Get Started",
     ctaHref: "https://dash.sqlbots.online/",
     highlight: false,
-    features: ["0 Credits", "0 Storage", "0 Slots"],
+    unavailable: false,
+    badge: "Starter",
+    highlights: ["0 Slots", "0 Credits", "0 Storage"],
   },
   {
     name: "Pro",
@@ -19,46 +21,55 @@ const plans = [
     originalPrice: "$250",
     discountLabel: "Save $90",
     period: "/month",
-    description: "For operators who need high-capacity automation.",
+    description: "Advanced automation",
     cta: "Upgrade To Pro",
     ctaHref: "https://discord.gg/eeMupKEX",
     highlight: true,
-    features: [
-      "3 task slots",
-      "2000 credits",
+    unavailable: false,
+    badge: "Most Popular",
+    highlights: [
+      "3 Task Slots",
+      "2000 Credits",
       "5GB Storage",
-      "Evasion Engine",
-      "AntiBan Engine",
-      "AI Preset Analysis",
-      "Payload Engine",
-      "AI Website Classification",
-      "Dehasher",
-      "Antipublic",
+      "Unlimited Scans & Dumps",
+      "Unlimited Proxy Usage",
     ],
   },
   {
     name: "Pro+",
     price: "$400",
     period: "/month",
-    description: "For advanced teams running large-scale workflows.",
+    description: "Maximum performance",
     cta: "Unavailable",
     ctaHref: "https://discord.gg/eeMupKEX",
     unavailable: true,
     highlight: false,
-    features: [
-      "6 task slots",
-      "6000 credits",
+    badge: "Scale",
+    highlights: [
+      "6 Task Slots",
+      "6000 Credits",
       "10GB Storage",
-      "Evasion Engine",
-      "AntiBan Engine",
-      "AI Preset Analysis",
-      "Payload Engine",
-      "AI Website Classification",
-      "Dehasher",
-      "Antipublic",
-      "Fastest Access To New AI Engine",
+      "Unlimited Scans & Dumps",
+      "Unlimited Proxy Usage",
     ],
   },
+]
+
+const compareRows = [
+  { feature: "Task Slots", free: "0", pro: "3", proPlus: "6" },
+  { feature: "Credits", free: "0", pro: "2000", proPlus: "6000" },
+  { feature: "Storage", free: "0", pro: "5GB", proPlus: "10GB" },
+  { feature: "Unlimited Scans", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "Unlimited Dumps", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "Unlimited Proxy Usages", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "Evasion Engine", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "AntiBan Engine", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "AI Preset Analysis", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "Payload Engine", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "AI Website Classification", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "Dehasher", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "Antipublic", free: "-", pro: "Yes", proPlus: "Yes" },
+  { feature: "Fastest Access To New AI Engine", free: "-", pro: "-", proPlus: "Yes" },
 ]
 
 export default function PricingPage() {
@@ -91,11 +102,9 @@ export default function PricingPage() {
                 <CardHeader className="gap-3 px-6 pt-6">
                   <div className="flex items-center justify-between">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">{plan.name}</p>
-                    {plan.discountLabel ? (
-                      <span className="rounded-full border border-emerald-300/30 bg-emerald-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-200">
-                        {plan.discountLabel}
-                      </span>
-                    ) : null}
+                    <span className="rounded-full border border-white/15 bg-white/[0.03] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/70">
+                      {plan.badge}
+                    </span>
                   </div>
                   <CardTitle className="flex items-end gap-1 text-4xl font-semibold tracking-tight">
                     {plan.price}
@@ -105,6 +114,11 @@ export default function PricingPage() {
                     ) : null}
                   </CardTitle>
                   <p className="text-sm text-white/65">{plan.description}</p>
+                  {plan.discountLabel ? (
+                    <span className="w-fit rounded-full border border-emerald-300/30 bg-emerald-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-200">
+                      {plan.discountLabel}
+                    </span>
+                  ) : null}
                 </CardHeader>
 
                 <CardContent className="px-6 pb-0">
@@ -126,10 +140,10 @@ export default function PricingPage() {
                   )}
                 </CardContent>
 
-                <CardFooter className="px-6 pb-6 pt-6">
-                  <ul className="w-full space-y-2.5 border-t border-white/10 pt-5">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2 text-sm text-white/75">
+                <CardFooter className="px-6 pb-6 pt-5">
+                  <ul className="w-full space-y-2 border-t border-white/10 pt-4">
+                    {plan.highlights.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-white/80">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -140,13 +154,43 @@ export default function PricingPage() {
                         >
                           <path d="m5 12 5 5L20 7" />
                         </svg>
-                        <span>{feature}</span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </CardFooter>
               </Card>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] p-4 sm:p-6">
+          <div className="mb-4">
+            <h2 className="text-lg font-semibold text-white">Full feature comparison</h2>
+            <p className="text-sm text-white/55">Detailed capabilities for Free, Pro, and Pro+.</p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[640px] border-collapse text-left text-sm">
+              <thead>
+                <tr className="border-b border-white/12 text-white/55">
+                  <th className="py-3 pr-3 font-medium">Feature</th>
+                  <th className="px-3 py-3 font-medium">Free</th>
+                  <th className="px-3 py-3 font-medium">Pro</th>
+                  <th className="px-3 py-3 font-medium">Pro+</th>
+                </tr>
+              </thead>
+              <tbody>
+                {compareRows.map((row) => (
+                  <tr key={row.feature} className="border-b border-white/8 last:border-0">
+                    <td className="py-3 pr-3 text-white/75">{row.feature}</td>
+                    <td className="px-3 py-3 text-white/70">{row.free}</td>
+                    <td className="px-3 py-3 text-white/80">{row.pro}</td>
+                    <td className="px-3 py-3 text-white/80">{row.proPlus}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
       </main>
