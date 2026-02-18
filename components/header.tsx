@@ -33,7 +33,7 @@ const menuItems: MenuItem[] = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/85 backdrop-blur-xl">
+    <header className="sticky top-[var(--promo-banner-offset,0px)] z-50 w-full border-b border-white/10 bg-background/85 backdrop-blur-xl transition-[top] duration-300 ease-out">
       <nav className="mx-auto flex w-full max-w-[1400px] flex-row items-center justify-between px-5 py-2 md:px-10 lg:px-20">
         <div className="flex flex-row items-center gap-16">
           <a href="/" className="inline-flex items-center gap-2.5 font-[var(--font-display)] text-base font-semibold tracking-tight text-white">

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Flame } from "lucide-react";
 import { GlobeDemo } from "@/components/ui/globe-demo";
 import { TypingAnimation } from "@/registry/magicui/typing-animation";
 import { FeatureCard } from "@/components/optimization-card";
@@ -19,6 +20,10 @@ import {
 export default function Home() {
   const [typingDone, setTypingDone] = useState(false);
   const [showGlobe, setShowGlobe] = useState(false);
+  const [showPromoBanner, setShowPromoBanner] = useState(true);
+  const [isClosingPromoBanner, setIsClosingPromoBanner] = useState(false);
+  const promoBannerRef = useRef<HTMLDivElement | null>(null);
+  const promoBannerCloseTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -73,8 +78,89 @@ export default function Home() {
     setShowGlobe(true);
   }, [typingDone]);
 
+  useEffect(() => {
+    const dismissed = window.localStorage.getItem("promo_banner_dismissed_v1");
+    if (dismissed === "1") {
+      setShowPromoBanner(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (promoBannerCloseTimerRef.current !== null) {
+        window.clearTimeout(promoBannerCloseTimerRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const applyOffset = () => {
+      const bannerHeight =
+        showPromoBanner && !isClosingPromoBanner && promoBannerRef.current
+          ? Math.ceil(promoBannerRef.current.getBoundingClientRect().height)
+          : 0;
+      root.style.setProperty("--promo-banner-offset", `${bannerHeight}px`);
+    };
+
+    applyOffset();
+
+    if (!showPromoBanner || !promoBannerRef.current) {
+      return () => {
+        root.style.removeProperty("--promo-banner-offset");
+      };
+    }
+
+    const observer = new ResizeObserver(applyOffset);
+    observer.observe(promoBannerRef.current);
+    window.addEventListener("resize", applyOffset);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", applyOffset);
+      root.style.removeProperty("--promo-banner-offset");
+    };
+  }, [isClosingPromoBanner, showPromoBanner]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {showPromoBanner && (
+        <div
+          ref={promoBannerRef}
+          className={`fixed inset-x-0 top-0 z-[60] border-b border-white/20 bg-[#0b0b0b]/95 shadow-[0_10px_26px_rgba(0,0,0,0.45)] backdrop-blur transition-all duration-300 ease-out ${isClosingPromoBanner ? "pointer-events-none -translate-y-2 opacity-0" : "translate-y-0 opacity-100"}`}
+        >
+          <div className="relative mx-auto flex w-full max-w-[1400px] items-center justify-center px-4 py-2 md:px-10 lg:px-20">
+            <p className="inline-flex items-center justify-center gap-2 text-center text-[11px] font-semibold tracking-[0.01em] text-white sm:text-xs md:text-sm">
+              <span className="inline-flex h-4 w-4 items-center justify-center motion-safe:animate-bounce">
+                <Flame className="h-4 w-4 animate-pulse text-red-500" aria-hidden="true" />
+              </span>
+              <span>
+                Limited Launch Offer <span className="text-white">FREE testing access available.</span> Join our Discord to claim +{" "}
+                <span className="text-zinc-300">40% OFF Pro Plan</span>
+              </span>
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                if (isClosingPromoBanner) {
+                  return;
+                }
+                setIsClosingPromoBanner(true);
+                promoBannerCloseTimerRef.current = window.setTimeout(() => {
+                  setShowPromoBanner(false);
+                  window.localStorage.setItem("promo_banner_dismissed_v1", "1");
+                }, 280);
+              }}
+              className="absolute right-4 inline-flex h-6 w-6 items-center justify-center rounded-md border border-white/20 text-white/75 transition hover:bg-white/10 hover:text-white md:right-10 lg:right-20"
+              aria-label="Close promotion banner"
+            >
+              <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M3 3l10 10M13 3L3 13" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
       <Header />
 
       <main className="mx-auto w-full max-w-[1400px] px-5 pb-10 pt-12 sm:pt-14 md:px-10 md:pt-16 lg:px-20 lg:pt-20">
