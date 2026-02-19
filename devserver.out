@@ -162,3 +162,5 @@ If you need interactivity, consider converting part of this to a Client Componen
 ✓ Compiled in 235ms
  GET /preview 200 in 502ms (compile: 165ms, render: 337ms)
  GET /changelog 200 in 195ms (compile: 13ms, render: 181ms)
+ GET /preview 200 in 352ms (compile: 197ms, render: 155ms)
+ GET /changelog 200 in 368ms (compile: 8ms, render: 361ms)
