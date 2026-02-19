@@ -1,0 +1,83 @@
+
+> landing@0.1.0 dev
+> next dev
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\wongy\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\wongy\Desktop\SQLBots\landing\package-lock.json
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.168.101:3000
+
+✓ Starting...
+✓ Ready in 1601ms
+ GET /changelog 200 in 1662ms (compile: 1286ms, render: 376ms)
+ GET /changelog 200 in 250ms (compile: 18ms, render: 232ms)
+ GET / 200 in 436ms (compile: 79ms, render: 357ms)
+ GET /changelog 200 in 406ms (compile: 9ms, render: 397ms)
+ GET /changelog 200 in 470ms (compile: 124ms, render: 346ms)
+ GET /changelog 200 in 465ms (compile: 317ms, render: 148ms)
+ GET /changelog 200 in 521ms (compile: 145ms, render: 375ms)
+ GET /changelog 200 in 519ms (compile: 311ms, render: 208ms)
+ GET /changelog 200 in 507ms (compile: 326ms, render: 181ms)
+ GET /changelog 200 in 513ms (compile: 114ms, render: 399ms)
+ GET /changelog 200 in 453ms (compile: 117ms, render: 336ms)
+ GET /changelog 200 in 448ms (compile: 312ms, render: 136ms)
+✓ Compiled in 223ms
+ GET /changelog 200 in 458ms (compile: 139ms, render: 319ms)
+ GET /changelog 200 in 458ms (compile: 298ms, render: 160ms)
+ GET /changelog 200 in 401ms (compile: 253ms, render: 147ms)
+ GET /changelog 200 in 405ms (compile: 107ms, render: 298ms)
+ GET /changelog 200 in 789ms (compile: 8ms, render: 781ms)
+ GET /changelog 200 in 419ms (compile: 8ms, render: 411ms)
+ GET /changelog 200 in 549ms (compile: 161ms, render: 388ms)
+ GET /changelog 200 in 539ms (compile: 323ms, render: 216ms)
+ GET /changelog 200 in 586ms (compile: 6ms, render: 580ms)
+ GET /changelog 200 in 450ms (compile: 106ms, render: 344ms)
+ GET /changelog 200 in 187ms (compile: 8ms, render: 179ms)
+ GET /changelog 200 in 381ms (compile: 103ms, render: 279ms)
+ GET /changelog 200 in 386ms (compile: 235ms, render: 150ms)
+ GET /changelog 200 in 695ms (compile: 8ms, render: 688ms)
+ GET /changelog 200 in 382ms (compile: 101ms, render: 282ms)
+ GET /changelog 200 in 128ms (compile: 7ms, render: 122ms)
+✓ Compiled in 128ms
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img className="w-full" src=... alt=... draggable=... onDragStart={function onDragStart}>
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '3886530366'
+}
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <img className="w-full" src=... alt=... draggable=... onDragStart={function onDragStart}>
+                                                                    ^^^^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '3886530366'
+}
+ GET /changelog 200 in 1514ms (compile: 100ms, render: 1414ms)
+ GET /changelog 200 in 1519ms (compile: 952ms, render: 568ms)
+✓ Compiled in 118ms
+ GET /changelog 200 in 1083ms (compile: 144ms, render: 940ms)
+ GET /changelog 200 in 427ms (compile: 15ms, render: 411ms)
+ GET /changelog 200 in 491ms (compile: 119ms, render: 372ms)
+ GET /changelog 200 in 183ms (compile: 8ms, render: 175ms)
+ GET /changelog 200 in 387ms (compile: 93ms, render: 294ms)
+ GET /changelog 200 in 385ms (compile: 210ms, render: 175ms)
+✓ Compiled in 111ms
+ GET /changelog 200 in 322ms (compile: 92ms, render: 229ms)
+ GET /changelog 200 in 321ms (compile: 221ms, render: 100ms)
+ GET /changelog 200 in 346ms (compile: 96ms, render: 251ms)
+ GET /changelog 200 in 347ms (compile: 215ms, render: 132ms)
+ GET / 200 in 658ms (compile: 114ms, render: 543ms)
+ GET /changelog 200 in 473ms (compile: 5ms, render: 468ms)

@@ -418,10 +418,13 @@ export default function Home() {
               Preview
             </p>
             <div className="min-h-[520px] overflow-hidden rounded-xl">
-              <img
-                src="https://ubyttekkpuihhbkogznd.supabase.co/storage/v1/object/public/avatars/renw.png"
-                alt="Dashboard preview"
+              <video
+                src="https://ubyttekkpuihhbkogznd.supabase.co/storage/v1/object/public/avatars/update/sqlbots.mp4"
                 className="h-full w-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
               />
             </div>
           </div>

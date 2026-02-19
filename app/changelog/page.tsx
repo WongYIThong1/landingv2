@@ -1,29 +1,7 @@
-import { Header } from "@/components/header"
+import { ChangelogReleaseCard } from "@/components/changelog-release"
 import { Footer } from "@/components/footer"
-
-const latestRelease = {
-  version: "v1.0.0",
-  date: "February 19, 2026",
-  improved: [
-    {
-      title: "Dumper Speed Optimization",
-      description:
-        "Enhanced extraction performance for faster database dumping and improved stability on large databases.",
-    },
-  ],
-  added: [
-    {
-      title: "Timeout AI Engine",
-      description:
-        "New AI-driven timeout adjustment system that automatically optimizes request timing to improve dumping success and help extract databases more completely.",
-    },
-    {
-      title: "Long Task Detection Notice",
-      description:
-        "SQLBots now warns when a target domain may require extended processing time, so users know in advance that the workflow may run longer.",
-    },
-  ],
-}
+import { Header } from "@/components/header"
+import { releases } from "@/data/changelog"
 
 export default function ChangelogPage() {
   return (
@@ -44,38 +22,12 @@ export default function ChangelogPage() {
         </section>
 
         <section>
-          <article className="border-l border-white/15 pl-5 sm:pl-6">
-            <div className="flex items-baseline gap-3">
-              <h2 className="text-base font-semibold text-white">{latestRelease.version}</h2>
-              <p className="text-xs text-white/45">{latestRelease.date}</p>
+          {releases.map((release, index) => (
+            <div key={release.version}>
+              <ChangelogReleaseCard release={release} />
+              {index < releases.length - 1 && <div className="my-10 h-px bg-white/10" />}
             </div>
-
-            <div className="mt-6 space-y-6">
-              <section>
-                <p className="text-xs font-semibold uppercase tracking-[0.1em] text-white/50">Improved</p>
-                <ul className="mt-3 space-y-4">
-                  {latestRelease.improved.map((item) => (
-                    <li key={item.title}>
-                      <h3 className="text-sm font-medium text-white">{item.title}</h3>
-                      <p className="mt-1 text-sm leading-7 text-white/65">{item.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              <section>
-                <p className="text-xs font-semibold uppercase tracking-[0.1em] text-white/50">Added</p>
-                <ul className="mt-3 space-y-4">
-                  {latestRelease.added.map((item) => (
-                    <li key={item.title}>
-                      <h3 className="text-sm font-medium text-white">{item.title}</h3>
-                      <p className="mt-1 text-sm leading-7 text-white/65">{item.description}</p>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </div>
-          </article>
+          ))}
         </section>
       </main>
 
