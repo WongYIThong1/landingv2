@@ -135,7 +135,16 @@ export default function Home() {
                 <Flame className="h-4 w-4 animate-pulse text-red-500" aria-hidden="true" />
               </span>
               <span>
-                Limited Launch Offer <span className="text-white">FREE testing access available.</span> Join our Discord to claim +{" "}
+                Limited Launch Offer <span className="text-white">FREE testing access available.</span>{" "}
+                <a
+                  href="https://discord.gg/es6vcqA5zS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-white underline decoration-white/70 underline-offset-4 transition hover:decoration-white"
+                >
+                  Join our Discord
+                </a>{" "}
+                to claim +{" "}
                 <span className="text-zinc-300">40% OFF Pro Plan</span>
               </span>
             </p>
