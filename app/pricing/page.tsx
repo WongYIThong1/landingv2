@@ -9,7 +9,7 @@ const plans = [
     period: "/month",
     description: "Explore SQLBots",
     cta: "Get Started",
-    ctaHref: "https://dash.sqlbots.online/",
+    ctaHref: "https://discord.gg/es6vcqA5zS",
     highlight: false,
     unavailable: false,
     badge: "Starter",
