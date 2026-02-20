@@ -70,6 +70,11 @@ export const releases: ChangelogRelease[] = [
     ],
     fixed: [
       {
+        title: "Fixed Injection Testing Skipping 70+ Urls",
+        description:
+          "Resolved an issue where batch injection tests could skip over 70+ URLs, ensuring broader and more reliable target coverage.",
+      },
+      {
         title: "Fixed Dump Row Skipping Issue",
         description:
           "Resolved an issue where large database dumps could skip rows, resulting in more complete extraction output.",
