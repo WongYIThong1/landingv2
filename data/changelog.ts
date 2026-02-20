@@ -70,9 +70,9 @@ export const releases: ChangelogRelease[] = [
     ],
     fixed: [
       {
-        title: "Fixed Injection Testing Skipping 70+ Urls",
+        title: "Fixed Injection Testing Skipping 70% Urls",
         description:
-          "Resolved an issue where batch injection tests could skip over 70+ URLs, ensuring broader and more reliable target coverage.",
+          "We fixed a bug that made the scan skip about 70% of links. It now checks almost all links.",
       },
       {
         title: "Fixed Dump Row Skipping Issue",
