@@ -3,7 +3,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
 const previewVideoUrl =
-  "https://ubyttekkpuihhbkogznd.supabase.co/storage/v1/object/public/avatars/update/sqlbots.mp4"
+  "https://ubyttekkpuihhbkogznd.supabase.co/storage/v1/object/public/avatars/update/sqlbots1.mp4"
 
 export const metadata: Metadata = {
   title: "SQLBots Preview",

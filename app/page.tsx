@@ -419,7 +419,7 @@ export default function Home() {
             </p>
             <div className="min-h-[520px] overflow-hidden rounded-xl">
               <video
-                src="https://ubyttekkpuihhbkogznd.supabase.co/storage/v1/object/public/avatars/update/sqlbots.mp4"
+                src="https://ubyttekkpuihhbkogznd.supabase.co/storage/v1/object/public/avatars/update/sqlbots1.mp4"
                 className="h-full w-full object-cover"
                 autoPlay
                 loop
