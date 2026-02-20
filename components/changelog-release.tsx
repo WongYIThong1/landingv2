@@ -1,4 +1,5 @@
 import type { ChangelogItem, ChangelogRelease } from "@/data/changelog"
+import { ChangelogVideo } from "@/components/changelog-video"
 
 type Props = {
   release: ChangelogRelease
@@ -31,6 +32,9 @@ function ItemList({ items }: { items: ChangelogItem[] }) {
               />
             </div>
           )}
+          {item.videoUrl && (
+            <ChangelogVideo src={item.videoUrl} title={item.title} />
+          )}
         </li>
       ))}
     </ul>
@@ -40,9 +44,11 @@ function ItemList({ items }: { items: ChangelogItem[] }) {
 export function ChangelogReleaseCard({ release }: Props) {
   return (
     <article className="border-l border-white/15 pl-5 sm:pl-6">
-      <div className="flex items-baseline gap-3">
-        <h2 className="text-base font-semibold text-white">{release.version}</h2>
-        <p className="text-xs text-white/45">{release.date}</p>
+      <div>
+        <h2 className="text-xl font-semibold tracking-tight text-white">{release.headline}</h2>
+        <p className="mt-1 text-xs text-white/45">
+          {release.version} | {release.date}
+        </p>
       </div>
 
       <div className="mt-6 space-y-6">
@@ -51,15 +57,17 @@ export function ChangelogReleaseCard({ release }: Props) {
           <ItemList items={release.added} />
         </section>
 
-        <details className="group rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3">
-          <summary className="cursor-pointer list-none text-xs font-semibold uppercase tracking-[0.1em] text-white/55 transition group-open:text-white">
-            <span className="inline-flex items-center gap-2">
-              <span>Improved</span>
-              <span className="text-white/35 transition group-open:rotate-90">{">"}</span>
-            </span>
-          </summary>
-          <ItemList items={release.improved} />
-        </details>
+        {release.improved.length > 0 && (
+          <details className="group rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3">
+            <summary className="cursor-pointer list-none text-xs font-semibold uppercase tracking-[0.1em] text-white/55 transition group-open:text-white">
+              <span className="inline-flex items-center gap-2">
+                <span>Improved</span>
+                <span className="text-white/35 transition group-open:rotate-90">{">"}</span>
+              </span>
+            </summary>
+            <ItemList items={release.improved} />
+          </details>
+        )}
 
         {release.fixed.length > 0 && (
           <details className="group rounded-lg border border-white/10 bg-white/[0.02] px-4 py-3">

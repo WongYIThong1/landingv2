@@ -3,9 +3,11 @@ export type ChangelogItem = {
   description: string
   gifUrl?: string
   imageUrl?: string
+  videoUrl?: string
 }
 
 export type ChangelogRelease = {
+  headline: string
   version: string
   date: string
   improved: ChangelogItem[]
@@ -15,6 +17,37 @@ export type ChangelogRelease = {
 
 export const releases: ChangelogRelease[] = [
   {
+    headline: "VulnBot",
+    version: "VULNBOT v1.0.0",
+    date: "February 20, 2026",
+    improved: [],
+    added: [
+      {
+        title: "Features",
+        description:
+          "High-Speed Bulk Vulnerability Scanner: Import a URL file and scan targets in bulk with SQL error fingerprint detection for MySQL / MSSQL / Oracle / PostgreSQL, including multi-vendor WAF detection. Performance: up to 9k+ RPM and 2k+ WPM with 50 threads (environment dependent).",
+      },
+      {
+        title: "Advanced Scanner Settings",
+        description:
+          "Configurable Threads, Timeout, and WAF Detect options. Built-in retry logic and smart concurrency limiting improve stability during long or high-load scans.",
+      },
+      {
+        title: "Live Terminal UI",
+        description:
+          "Real-time dashboard shows processed targets, RPM, WPM, vulnerable hits, database hit counters plus WAF hits, and progress with rotating hints. Rendering is optimized to reduce flicker and keep stats readable at high throughput.",
+      },
+      {
+        title: "VulnBot Preview",
+        description: "Product preview video.",
+        videoUrl:
+          "https://ubyttekkpuihhbkogznd.supabase.co/storage/v1/object/public/avatars/update/vulnbot.mp4",
+      },
+    ],
+    fixed: [],
+  },
+  {
+    headline: "SmartClean & Faster Scanning",
     version: "v1.0.1",
     date: "February 19, 2026",
     improved: [
@@ -92,6 +125,7 @@ export const releases: ChangelogRelease[] = [
     ],
   },
   {
+    headline: "Timeout AI & Long-Task Alerts",
     version: "v1.0.0",
     date: "February 19, 2026",
     improved: [
